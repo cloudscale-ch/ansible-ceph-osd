@@ -1,0 +1,4 @@
+---
+- name: set the hosts crush location
+  command: ceph osd crush move {{ inventory_hostname }} {{ host_crush_location }}
+  delegate_to: "{{ groups[mon_group_name][0] }}"

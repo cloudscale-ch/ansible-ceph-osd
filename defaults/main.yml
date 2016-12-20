@@ -53,6 +53,9 @@ copy_admin_key: false
 crush_location: false
 osd_crush_location: "\"root={{ ceph_crush_root }} rack={{ ceph_crush_rack }} host={{ ansible_hostname }}\""
 
+# Set this to change the host CRUSH location. This is a per host variable. As long as it's undefined the
+# location won't be changed.
+# host_crush_location: rack={{ ceph_crush_rack }}
 
 ##############
 # CEPH OPTIONS
