@@ -41,10 +41,6 @@
     mode: "0644"
   with_items: "{{ combined_osd_id.results }}"
 
-- name: copy {{ cluster }}.conf for assembling
-  command: cp /etc/ceph/{{ cluster }}.conf /etc/ceph/ceph.d/
-  changed_when: false
-
 - name: assemble osd sections
   assemble:
     src: /etc/ceph/ceph.d/osd_fragments/
