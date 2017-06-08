@@ -57,3 +57,4 @@
     owner: "ceph"
     group: "ceph"
     mode: "0644"
+  notify: restart ceph osds
