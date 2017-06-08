@@ -57,6 +57,15 @@ osd_crush_location: "\"root={{ ceph_crush_root }} rack={{ ceph_crush_rack }} hos
 # location won't be changed.
 # host_crush_location: rack={{ ceph_crush_rack }}
 
+# If you need even more control you can set a per device CRUSH location. This is a dictionary mapping device
+# names (as used in the devices array) to CRUSH locations. This is usefull if you have different types of
+# devices on the same host which should end up in different locations of the CRUSH hierarchy.
+# Example:
+#  osd_device_crush_location:
+#     /dev/sdb: root=sdb_type_root rack=sdb_type_rack host=sdb_host
+
+osd_device_crush_location: {}
+
 ##############
 # CEPH OPTIONS
 ##############

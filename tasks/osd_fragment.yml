@@ -35,11 +35,13 @@
 - name: create the osd fragment
   template:
     src: osd.conf.j2
-    dest: /etc/ceph/ceph.d/osd_fragments/osd.{{ item.stdout }}.conf
+    dest: /etc/ceph/ceph.d/osd_fragments/osd.{{ item.0.stdout }}.conf
     owner: "ceph"
     group: "ceph"
     mode: "0644"
-  with_items: "{{ combined_osd_id.results }}"
+  with_together:
+    - "{{ combined_osd_id.results }}"
+    - "{{ devices }}"
 
 - name: assemble osd sections
   assemble:
