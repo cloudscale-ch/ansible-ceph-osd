@@ -42,7 +42,7 @@
   static: False
 
 - include: host_crush_location.yml
-  when: host_crush_location is defined
+  when: host_crush_location is defined and host_crush_location
 
 - include: ./docker/main.yml
   when: osd_containerized_deployment
