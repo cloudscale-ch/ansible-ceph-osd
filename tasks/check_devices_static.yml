@@ -4,7 +4,7 @@
   with_items: "{{ devices }}"
   changed_when: false
   failed_when: false
-  always_run: true
+  check_mode: False
   register: ispartition_results
 
 - name: check the partition status of the osd disks
@@ -14,7 +14,7 @@
     - "{{ devices }}"
   changed_when: false
   failed_when: false
-  always_run: true
+  check_mode: False
   register: osd_partition_status_results
   when: item.0.rc != 0
 
@@ -38,5 +38,5 @@
   with_items: "{{ devices }}"
   changed_when: false
   failed_when: false
-  always_run: true
+  check_mode: False
   register: parted_results

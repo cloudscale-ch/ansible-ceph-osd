@@ -27,7 +27,7 @@
   with_items: "{{ raw_journal_devices }}"
   changed_when: false
   failed_when: false
-  always_run: true
+  check_mode: False
   register: journal_ispartition_results
 
 - name: check the partition status of the journal devices
@@ -37,7 +37,7 @@
     - "{{ raw_journal_devices|unique }}"
   changed_when: false
   failed_when: false
-  always_run: true
+  check_mode: False
   register: journal_partition_status
   when:
     - (raw_multi_journal or dmcrypt_dedicated_journal)
