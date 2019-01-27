@@ -1,6 +1,6 @@
 [osd.{{ item.0.stdout }}]
 {% if item.1 in osd_device_crush_location %}
-osd crush location = {{ osd_device_crush_location[item.1] }}
+crush location = {{ osd_device_crush_location[item.1] }}
 {% else %}
-osd crush location = {{ osd_crush_location }}
+crush location = {{ osd_crush_location }}
 {% endif %}
