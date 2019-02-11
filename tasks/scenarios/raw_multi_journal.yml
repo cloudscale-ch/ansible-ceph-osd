@@ -8,7 +8,7 @@
 # since Ansible will sequential process the loop
 
 - name: prepare filestore osd disk(s) with a dedicated journal device
-  command: "ceph-disk prepare --cluster {{ cluster }} {{ item.1 }} {{ item.2 }}"
+  command: "ceph-disk prepare --filestore --cluster {{ cluster }} {{ item.1 }} {{ item.2 }}"
   with_together:
     - "{{ parted_results.results }}"
     - "{{ devices }}"
